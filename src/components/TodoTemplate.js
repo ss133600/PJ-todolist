@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import TodoInsert from "./TodoInsert";
 
 const TodoWrapper = styled.div`
   width: 512px;
@@ -25,13 +24,11 @@ const Content = styled.div`
   background-color: #fff;
 `;
 
-const TodoTemplate = () => {
+const TodoTemplate = ({ children }) => {
   return (
     <TodoWrapper>
       <AppTitle>Todo List</AppTitle>
-      <Content>
-        <TodoInsert />
-      </Content>
+      <Content>{children}</Content>
     </TodoWrapper>
   );
 };
