@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import TodoInsert from "./TodoInsert";
 
 const TodoWrapper = styled.div`
   width: 512px;
-  margin: 6rem auto;
+  margin: 6rem auto 0;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 0 5px #ccc;
@@ -28,7 +29,9 @@ const TodoTemplate = () => {
   return (
     <TodoWrapper>
       <AppTitle>Todo List</AppTitle>
-      <Content>content</Content>
+      <Content>
+        <TodoInsert />
+      </Content>
     </TodoWrapper>
   );
 };
