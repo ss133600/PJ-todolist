@@ -25,6 +25,9 @@ const TodoInsertWrapper = styled.form`
     border: none;
     color: #fff;
     padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    line-height: 20px;
     font-size: 20px;
     transition: all 0.2s;
     &:hover {

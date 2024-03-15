@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 
@@ -7,12 +8,13 @@ const TodoListWrapper = styled.div`
   overflow: auto;
 `;
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <TodoListWrapper>
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {/* =>map을 사용하여 key props 전달해야 함 */}
+      {todos.map((todo) => (
+        <TodoListItem todo={todo} key={todo.id} />
+      ))}
     </TodoListWrapper>
   );
 };

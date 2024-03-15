@@ -4,6 +4,7 @@ import {
   MdRemoveCircleOutline,
 } from "react-icons/md";
 import styled from "styled-components";
+import cn from "classnames";
 
 const TodoItemWrapper = styled.div`
   display: flex;
@@ -52,19 +53,19 @@ const Remove = styled.div`
   }
 `;
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo }) => {
+  const { id, text, checked } = todo;
   return (
-    <>
-      <TodoItemWrapper>
-        <CheckBox>
-          <MdCheckBoxOutlineBlank />
-          <div className="text">할 일</div>
-        </CheckBox>
-        <Remove>
-          <MdRemoveCircleOutline />
-        </Remove>
-      </TodoItemWrapper>
-    </>
+    <TodoItemWrapper>
+      <CheckBox className={cn("checkbox", { checked })}>
+        {/* => 조건문 삼항연산자 이용 */}
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <div className="text">{text}</div>
+      </CheckBox>
+      <Remove>
+        <MdRemoveCircleOutline />
+      </Remove>
+    </TodoItemWrapper>
   );
 };
 export default TodoListItem;
