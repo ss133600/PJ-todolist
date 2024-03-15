@@ -53,7 +53,7 @@ const Remove = styled.div`
   }
 `;
 
-const TodoListItem = ({ todo }) => {
+const TodoListItem = ({ todo, onRemove }) => {
   const { id, text, checked } = todo;
   return (
     <TodoItemWrapper>
@@ -62,7 +62,7 @@ const TodoListItem = ({ todo }) => {
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <div className="text">{text}</div>
       </CheckBox>
-      <Remove>
+      <Remove onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </Remove>
     </TodoItemWrapper>

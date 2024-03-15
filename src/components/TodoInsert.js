@@ -35,11 +35,14 @@ const TodoInsertWrapper = styled.form`
     }
   }
 `;
+
 const TodoInsert = ({ onInsert }) => {
   // =>상태관리
   const [value, setValue] = useState("");
 
-  // =>input상자에 값변화 감지 함수
+  // =>input상자에 값변화 감지위한 함수
+  // =>useCallback은 리액트에서 성능 최적화를 위해 사용되는 강력한 도구.
+  //  함수의 메모이제이션을 통해 함수 재생성을 방지하고, 의존성 배열을 사용하여 필요한 경우에만 함수를 업데이트할 수 있다.
   const onChange = useCallback((e) => {
     setValue(e.target.value);
   }, []);

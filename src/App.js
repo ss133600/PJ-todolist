@@ -35,8 +35,17 @@ function App() {
         text,
         checked: false,
       };
+      // =>concat : 배열합치기
       setTodos(todos.concat(todo));
       nextId.current += 1;
+    },
+    [todos]
+  );
+
+  //항목 지우기
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
     },
     [todos]
   );
@@ -45,7 +54,7 @@ function App() {
     <div className="App">
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onRemove={onRemove} />
       </TodoTemplate>
     </div>
   );

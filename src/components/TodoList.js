@@ -8,12 +8,12 @@ const TodoListWrapper = styled.div`
   overflow: auto;
 `;
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onRemove }) => {
   return (
     <TodoListWrapper>
       {/* =>map을 사용하여 key props 전달해야 함 */}
       {todos.map((todo) => (
-        <TodoListItem todo={todo} key={todo.id} />
+        <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} />
       ))}
     </TodoListWrapper>
   );
